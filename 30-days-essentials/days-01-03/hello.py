@@ -1,4 +1,3 @@
-
 # ==================================================
 # FILE: hello.py
 # PURPOSE: My first Python program.

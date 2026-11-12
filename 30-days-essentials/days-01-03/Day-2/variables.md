@@ -16,8 +16,12 @@ This script introduces **variables** (storage boxes) and **data types** (the kin
 
 ### 2. Core Data Types in the Script
 Python looks at what you write and automatically figures out what kind of data it is (called **dynamic typing**):
-* **String (`str` - Text):** Words, letters, or numbers wrapped in quotation marks. 
-  * *Example:* `target_ip = "192.168.1.10"`
+* **Strings (Text):** Words, letters, or numbers wrapped in quotes.  
+    * *Example:* `target_ip = "192.168.1.10"`  
+    * **💡 Beginner Q&A: "Wait, an IP address has dots in it... why isn't it a float?"**  
+      * *The Answer:* Because a **float** is meant for *real math* (like `3.14` or `98.6`), and it has a strict rule: **a number can only have ONE decimal point.** 
+      * If you tried to type `192.168.1.10` as a raw number/float, Python would crash instantly because it sees multiple dots and thinks, *"What kind of weird math number is this?!"*
+      * **Analogy:** Think of a phone number like `1-800-555-1234`. It has dashes, but you aren't supposed to subtract 800 from 1. It's just a text label. An IP address uses dots the exact same way—they are just separators to break up the numbers, making it a **string** of text, not a math equation.*
 * **Integer (`int` - Whole Number):** Whole numbers without a decimal point. No quotes allowed!
   * *Example:* `port = 443`
 * **Float (`float` - Decimal Number):** Numbers containing a decimal point, used for precision or measurements.

@@ -33,11 +33,9 @@ In coding, **syntax** is just the grammar rules of Python. If you break the gram
 ### 1. Missing Quotation Marks
 ```python
 print(Hello, world!)
+
+
 ### 2. Missing Closing Quotation Mark
 ```python
 print("Hello, world!)
 ---
-
-Just paste that right below your first example, and your `hello-notes.md` will be 100% complete and ready to turn in! 
-
-<FollowUp label="Want me to review your final markdown file before you submit it?" query="Can you review my final hello-notes.md file to make sure everything looks good?"/>---

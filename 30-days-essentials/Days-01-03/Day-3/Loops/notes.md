@@ -126,3 +126,20 @@ Output: `Apples: 2`.
 | Inside the `if` | Only matching items | Counts matches (2) |
 
 **Security connection:** This is how analysts count failed logins in a log: loop through every line, add a point only when the line says "failed."
+
+### Indentation Levels (how the syntax is shaped)
+
+**The rule:** A line ending in `:` opens a new block. The lines inside the block are indented 4 more spaces. Going back to the left ends the block.
+
+| Level | Spaces | What runs there |
+|---|---|---|
+| 0 | none | Runs once (before or after the loop) |
+| 1 | 4 | Runs on every pass of the loop |
+| 2 | 8 | Runs only when the `if`/`else` branch matches |
+
+**Key points:**
+* `if`, `elif`, and `else` line up with each other. They're doors in the same hallway.
+* The counter's `+= 1` goes at level 2, inside the door for the case I want to count.
+* The final report `print` goes at level 0, after the loop.
+
+**Pitfall:** Wrong indentation rarely crashes the program. It just changes *how many times* a line runs, which makes the answer silently wrong.

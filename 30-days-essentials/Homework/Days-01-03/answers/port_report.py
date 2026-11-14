@@ -26,7 +26,6 @@ for port in port_list:
     print(f"Checking port {port}...")
 
 # This part here is the counter loop that needs to go inside the loop.
-    unknown_count += 1
 
     # Remember this one
     # An if/elif/else INSIDE the loop: indent one level deeper.
@@ -46,8 +45,12 @@ for port in port_list:
         print("  HTTPS: secure web server, encrypted")
     elif port == 3389:
         print("  RDP: remote desktop, encrypted")
+    
+    # This part here is the counter loop that needs to go inside the loop.
     else: 
-        print("Done.")
+        print("  unknown")
+        unknown_count += 1
 
-    print(f"unknown ports found: {unknown_count}")
+print(f"unknown ports found: {unknown_count}")
+print("Done.")
     

@@ -20,7 +20,7 @@ for port in common_ports:
         print("  SSH: remote login")
     elif port == 21:
         print("  FTP: file transfer, unencrypted")
-    elif port ==3389:
+    elif port == 3389:
         print("  RDP: windows remote desktop")
     else:
         print("  Not in my list yet")

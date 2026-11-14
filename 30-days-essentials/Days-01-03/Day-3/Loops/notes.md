@@ -63,3 +63,40 @@ Test your understanding and build your coding muscles with these exercises:
    * **Port 21:** `FTP: file transfer, unencrypted`
    * **Port 3389:** `RDP: Windows remote desktop`
    *(If it throws an error or doesn't work, bring your code back here and I'll give you a hint instead of just giving you the answer!)*
+
+
+   ## Counters (loop_counter.py)
+
+### What is a counter?
+A counter is a variable that keeps score while a loop runs. It starts at a number (usually 0) and goes up by 1 each time something happens. Counting events is how security analysts measure things like failed logins or unknown ports.
+
+### Core Breakdown
+
+**1. `count = 0` (the starting score)**
+* Creates the variable and sets the scoreboard to 0.
+* It goes **above** the loop so it only happens once.
+
+**2. `count += 1` (add a point)**
+* Short for `count = count + 1`: take what's in the box, add 1, put it back.
+* It goes **inside** the loop so it happens on every pass (or only when a condition is true, like inside an `else`).
+
+**3. `print(count)` (read the scoreboard)**
+* Goes **after** the loop, unindented, so it shows the final score once.
+
+**Analogy:** Three friends walk past a scoreboard. You write 0 on it before the game, and each friend adds 1 point. At the end it says 3.
+
+### The Bug: `count = 0` inside the loop
+```python
+for port in [80, 443, 22]:
+    bad_count = 0      # wipes the board on EVERY pass
+    bad_count += 1
+print(bad_count)       # prints 1, not 3
+```
+* Each pass erases the previous points, so the board only ever "sees" the last friend.
+* **No error message appears.** Python does exactly what you wrote, so the answer is silently wrong.
+
+### Rule to Remember
+Starting value **above** the loop. Update **inside** the loop. Report **after** the loop.
+
+### Tool Connection
+Splunk and Wazuh do this at scale: they loop through millions of log lines and count events, such as failed logins per IP, to catch brute-force attacks.

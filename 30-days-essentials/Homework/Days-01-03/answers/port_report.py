@@ -13,7 +13,10 @@ port_list = [25, 53, 8080, 8443, 21, 22, 443, 3389, 2]
 # I also included 4 extra ports since part 1 asked for 8 ports in total.
 # I also included 1 more port as an unknown that will be port 2
 
-
+# Count the Unknowns: Before your loop starts, create a counter variable 
+# (unknown_count = 0). Inside the loop, add 1 to this counter every time
+# an unknown port is encountered (unknown_count += 1).
+unknown_count = 0
 
 # Next step is to Loop through them. For each 
 # port, print the service name if you know it 
@@ -21,6 +24,9 @@ port_list = [25, 53, 8080, 8443, 21, 22, 443, 3389, 2]
 
 for port in port_list:
     print(f"Checking port {port}...")
+
+# This part here is the counter loop that needs to go inside the loop.
+    unknown_count += 1
 
     # Remember this one
     # An if/elif/else INSIDE the loop: indent one level deeper.
@@ -41,7 +47,7 @@ for port in port_list:
     elif port == 3389:
         print("  RDP: remote desktop, encrypted")
     else: 
-        print("  unknown")
+        print("Done.")
 
-print("Done.")
+    print(f"unknown ports found: {unknown_count}")
     

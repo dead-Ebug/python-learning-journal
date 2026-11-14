@@ -100,3 +100,29 @@ Starting value **above** the loop. Update **inside** the loop. Report **after** 
 
 ### Tool Connection
 Splunk and Wazuh do this at scale: they loop through millions of log lines and count events, such as failed logins per IP, to catch brute-force attacks.
+
+
+### Conditional Counters (counting only SOME items)
+
+**The idea:** A counter that goes up on every pass just counts how many items are in the list. To count only items that match a condition, the `+= 1` has to live *inside* the `if` (or `else`) branch for that condition.
+
+**Example (not from port_report.py):**
+```python
+fruits = ["apple", "cherry", "apple", "banana"]
+apple_count = 0                  # 1. Scoreboard starts at 0, above the loop
+
+for fruit in fruits:
+    if fruit == "apple":
+        apple_count += 1         # 2. Point added ONLY for apples
+
+print(f"Apples: {apple_count}")  # 3. Read the scoreboard once, after the loop
+```
+Output: `Apples: 2`.
+
+**Why placement matters:**
+| `+= 1` is... | Runs when | Result |
+|---|---|---|
+| Next to the `if` (every pass) | Every item | Counts ALL items (4) |
+| Inside the `if` | Only matching items | Counts matches (2) |
+
+**Security connection:** This is how analysts count failed logins in a log: loop through every line, add a point only when the line says "failed."

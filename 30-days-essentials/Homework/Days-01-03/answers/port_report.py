@@ -8,7 +8,7 @@
 # Make a list of at least 8 ports, including 25, 53, 8080, & 8443.
 # Lets go ahead and create it.
 
-port_list = [25, 53, 8080, 8443, 21, 22, 443, 3389, 2]
+port_list = [25, 53, 8080, 8443, 21, 22, 443, 3389, 2, "22"]
 # Here i made sure to include the ones listed 25, 53, 8080, & 8443. 
 # I also included 4 extra ports since part 1 asked for 8 ports in total.
 # I also included 1 more port as an unknown that will be port 2
